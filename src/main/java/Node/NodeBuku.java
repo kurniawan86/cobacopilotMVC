@@ -1,37 +1,20 @@
 package Node;
 
 public class NodeBuku {
+
+    private int kode;
     private String judul;
     private String pengarang;
-    private String penerbit;
     private int tahunTerbit;
     private int stok;
     private NodeBuku next;
 
-    public NodeBuku(String judul, String pengarang, String penerbit, int tahunTerbit, int stok) {
-        this.judul = judul;
-        this.pengarang = pengarang;
-        this.penerbit = penerbit;
-        this.tahunTerbit = tahunTerbit;
-        this.stok = stok;
-        this.next = null;
-    }
-
-    public NodeBuku(String judul, String pengarang, String penerbit, int tahunTerbit, int stok, NodeBuku next) {
-        this.judul = judul;
-        this.pengarang = pengarang;
-        this.penerbit = penerbit;
-        this.tahunTerbit = tahunTerbit;
-        this.stok = stok;
-        this.next = next;
-    }
-
-    public NodeBuku(String judul, String pengarang, int tahunTerbit, int stok) {
+    public NodeBuku(int kode, String judul, String pengarang, int tahunTerbit, int stok) {
+        this.kode = kode;
         this.judul = judul;
         this.pengarang = pengarang;
         this.tahunTerbit = tahunTerbit;
         this.stok = stok;
-        this.next = null;
     }
 
     public String getJudul() {
@@ -48,14 +31,6 @@ public class NodeBuku {
 
     public void setPengarang(String pengarang) {
         this.pengarang = pengarang;
-    }
-
-    public String getPenerbit() {
-        return this.penerbit;
-    }
-
-    public void setPenerbit(String penerbit) {
-        this.penerbit = penerbit;
     }
 
     public int getTahunTerbit() {
@@ -83,10 +58,18 @@ public class NodeBuku {
     }
 
     public String toString() {
-        return "Judul: " + this.judul + "\n" +
+        return "kode: " + this.kode + "\n" +
+               "Judul: " + this.judul + "\n" +
                "Pengarang: " + this.pengarang + "\n" +
-               "Penerbit: " + this.penerbit + "\n" +
                "Tahun Terbit: " + this.tahunTerbit + "\n" +
                "Stok: " + this.stok + "\n";
+    }
+
+    public Object getKode() {
+        return this.kode;
+    }
+
+    public void setKode(int kode) {
+        this.kode = kode;
     }
 }

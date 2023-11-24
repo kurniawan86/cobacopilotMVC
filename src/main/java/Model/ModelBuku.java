@@ -1,15 +1,25 @@
 package Model;
+import JSON.JSONbuku;
 import Node.NodeBuku;
 import java.util.ArrayList;
 
 public class ModelBuku {
     private ArrayList<NodeBuku> listBuku;
+    private JSONbuku jsoNbuku;
 
     public ModelBuku() {
         this.listBuku = new ArrayList<>();
+        System.out.println("size "+listBuku.size());
+        jsoNbuku = new JSONbuku();
+        jsoNbuku.createJSON();
+        listBuku = jsoNbuku.loadJSON();
+        System.out.println("size "+listBuku.size());
+
     }
 
-    public void addBuku(NodeBuku buku) {
+    public void addBuku(String judul,String pengarang, int tahunTerbit, int stok) {
+        int kode = listBuku.size() + 1;
+        NodeBuku buku = new NodeBuku(kode, judul, pengarang, tahunTerbit, stok);
         this.listBuku.add(buku);
     }
 
@@ -29,10 +39,7 @@ public class ModelBuku {
         this.listBuku.remove(index);
     }
 
-    public void saveJSON() {
-
-    }
-    public void readfromJSON() {
-
+    public void commitJSON(){
+        jsoNbuku.saveJSON(listBuku);
     }
 }
